@@ -1,0 +1,29 @@
+{
+  "name": "reto-automation-deuna-cypress",
+  "version": "1.0.0",
+  "description": "Reto tecnico de pruebas automatizadas con cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:runner": "cypress open --e2e --browser chrome",
+    "cypress:execution": "cypress run"
+  },
+  "keywords": [
+    "QA",
+    "Automation",
+    "Cypress"
+  ],
+  "author": "Cristian Hdez",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/CristianHdezZ/RetoQAAutomation-KFC-DeUna.git"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "cypress": "^12.0.2",
+    "esbuild": "^0.16.4",
+    "multiple-cucumber-html-reporter": "^3.0.1"
+  }
+}
