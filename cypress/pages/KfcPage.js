@@ -2,31 +2,31 @@ class KfcPage{
     elemenst = {
         menubar: () => cy.get('[data-rs-event-name="Select Menu"] > a > span'),
         subMenuOption: () => cy.get(":nth-child(6) > .nav-link"),
-        productCard: () => cy.get('#product_173 > .card > .h-100 > .card-body > .mt-auto'),
-        addToCarButton: () => cy.get("#add-to-cart-button > div"),       
-        modalDialog: () => cy.get("#add-to-cart-modal > div > div",{ timeout: 10000 }),
-        AddPopCornFamily:()=>cy.get('#inside-product-cart-form > div:nth-child(4) > div:nth-child(3) > div:nth-child(1) > div > div:nth-child(2) > div.d-flex.quantity-select.quantity-select-related-product.mt-1 > button.border-0.flex-grow-0.flex-shrink-0.py-0.px-3.quantity-select-related-product-increase', { timeout: 10000 }).eq(0),
-
+        productCard: () => cy.get('#nav-bar-spy-scroll > .nav-pills > .nav-item:nth-child(6) > .nav-link > .rounded-circle'),        
+        addToCarButton: () => cy.get("#add-to-cart-button > div"),               
+        AddPopCornFamily:()=>cy.get('.complement-group-select:nth-child(1) > .group-divider > .d-flex:nth-child(2) > .d-flex > .border-0:nth-child(3)'),                                  
+        product_preview:()=>cy.visit('/product_preview/combo-pop-corn-87'),
         };
 
     menubarClick(){
         this.elemenst.menubar().click()
     }
-
     productClick(){
         this.elemenst.productCard().click()
     }
-
     selectProduct(){
         this.elemenst.menubar().click()
         this.elemenst.subMenuOption().click()
-        this.elemenst.productCard().click()                   
+        this.elemenst.productCard().click()       
+        cy.visit('https://www.kfc.co/products/combo-pop-corn-87')  
     }
-
-    addToCarClick(){     
-        this.elemenst.modalDialog().should("be.visible")
-        this.elemenst.AddPopCornFamily().click({ force: true })   
-        this.elemenst.addToCarButton().click({ force: true }); 
+    addProductData(){        
+        cy.get('.complement-group-select:nth-child(1) > .group-divider > .d-flex:nth-child(2) > .d-flex > .border-0:nth-child(3)').click()
+        cy.get('.complement-group-select:nth-child(2) > .group-divider > .d-flex:nth-child(2) > .d-flex > .border-0:nth-child(3)').click()         
+    }
+    addToCar(){     
+        cy.get('#cart-form > #add-to-cart-form > #inside-product-cart-form > .col-12 > #add-to-cart-button').click()
+        cy.get('.new-modal-body > .sub-container > .button-container > .justify-content-center > #button-checkout-duna').click()
     }
     
 }

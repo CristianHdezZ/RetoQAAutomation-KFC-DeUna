@@ -11,8 +11,10 @@ Given("un cliente de KFC con credito disponible e ingrese a la plataforma {strin
 
 When("seleccione el producto deseado",()=>{
     kfcPage.selectProduct() 
+    kfcPage.addProductData()
 });
 
 Then("realizara el pago de manera exitosa",()=>{
-    kfcPage.addToCarClick()
+    kfcPage.addToCar()
+    cy.url().should("contains", "/products/combo-pop-corn-87");
 })
